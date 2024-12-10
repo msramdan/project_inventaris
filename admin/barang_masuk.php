@@ -38,7 +38,7 @@
 
                   <!-- Modal body -->
                   <div class="modal-body">
-                    <form action="barang_masuk_act.php" method="post">
+                    <form action="barang_masuk_act.php" method="post" enctype="multipart/form-data">
 
                       <div class="form-group">
                         <label>Barang</label>
@@ -80,6 +80,12 @@
                         </select>
                       </div>
 
+                      <!-- Input untuk Gambar -->
+                      <div class="form-group">
+                        <label>Bukti Barang Masuk</label>
+                        <input type="file" class="form-control" name="bm_bukti" required="required" accept="image/*">
+                      </div>
+
                       <div class="form-group">
                         <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Batal</button>
                         <input type="submit" class="btn btn-sm btn-primary" value="Simpan">
@@ -91,6 +97,7 @@
               </div>
             </div>
 
+
           </div>
           <div class="box-body">
             <div class="table-responsive">
@@ -100,6 +107,7 @@
                     <th width="1%">NO</th>
                     <th>NAMA BARANG</th>
                     <th>GAMBAR</th>
+                    <th>BUKTI</th>
                     <th>TANGGAL MASUK</th>
                     <th>JUMLAH</th>
                     <th>NAMA SUPPLIER</th>
@@ -130,6 +138,13 @@
                           No Image
                         <?php endif; ?>
                       </td>
+                      <td>
+                        <?php if (!empty($d['bm_bukti'])): ?>
+                          <a href="../gambar/barang_masuk/<?php echo $d['bm_bukti']; ?>" target="_blank">Lihat Bukti</a>
+                        <?php else: ?>
+                          No Bukti
+                        <?php endif; ?>
+                      </td>
                       <td><?php echo $d['bm_tgl_masuk']; ?></td>
                       <td><?php echo $d['bm_jumlah']; ?></td>
                       <td><?php echo $d['bm_nama_suplier']; ?></td>
@@ -147,6 +162,7 @@
                   ?>
                 </tbody>
               </table>
+
 
             </div>
           </div>
