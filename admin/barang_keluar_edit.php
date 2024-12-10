@@ -23,7 +23,7 @@
             <a href="barang_keluar.php" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i> &nbsp Kembali</a> 
           </div>
           <div class="box-body">
-            <form action="barang_keluar_update.php" method="post">
+            <form action="barang_keluar_update.php" method="post" enctype="multipart/form-data">
               <?php 
               $id = $_GET['id'];              
               $data = mysqli_query($koneksi, "select * from barang_keluar where bk_id='$id'");
@@ -70,6 +70,18 @@
                   <label>Keterangan</label>
                   <input type="text" class="form-control" name="keterangan" placeholder="Masukkan Keterangan .." value="<?php echo $d['bk_keterangan'] ?>">
                 </div>
+
+                <div class="form-group">
+                  <label>Upload Bukti (Opsional)</label>
+                  <?php if (!is_null($d['bk_bukti']) && $d['bk_bukti'] != '') { ?>
+                    <div>
+                      <img src="../gambar/barang_keluar/<?php echo $d['bk_bukti']; ?>" alt="Bukti Barang Keluar" style="max-width: 100px; max-height: 100px;">
+                    </div>
+                  <?php } ?>
+                  <input type="file" class="form-control" name="bk_bukti">
+                  <small class="text-muted">Jika tidak mengganti gambar, biarkan kosong.</small>
+                </div>
+
 
                 <div class="form-group">
                   <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Batal</button>
