@@ -37,6 +37,7 @@
                     <th>NAMA</th>
                     <th>BARANG</th>
                     <th>GAMBAR</th>
+                    <th>BUKTI</th>
                     <th>JUMLAH</th>
                     <th>KONDISI</th>
                     <th>TGL. PINJAM</th>
@@ -58,6 +59,8 @@
     ");
 
                   while ($d = mysqli_fetch_array($data)) {
+                    var_dump( $d['bukti']);
+                    
                   ?>
                     <tr>
                       <td><?php echo $no++; ?></td>
@@ -68,6 +71,13 @@
                           <img src="../gambar/barang/<?php echo $d['gambar']; ?>" width="100" alt="Gambar Barang">
                         <?php else: ?>
                           No Image
+                        <?php endif; ?>
+                      </td>
+                      <td>
+                        <?php if (!empty($d['bukti'])): ?>
+                          <a href="../gambar/pinjam/<?php echo $d['bukti']; ?>" target="_blank">Lihat Bukti</a>
+                        <?php else: ?>
+                          No Bukti
                         <?php endif; ?>
                       </td>
                       <td><?php echo $d['pinjam_jumlah']; ?></td>

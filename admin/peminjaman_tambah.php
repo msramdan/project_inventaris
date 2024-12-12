@@ -23,7 +23,7 @@
             <a href="peminjaman.php" class="btn btn-info btn-sm pull-right"><i class="fa fa-reply"></i> &nbsp Kembali</a> 
           </div>
           <div class="box-body">
-            <form action="peminjaman_act.php" method="post">
+            <form action="peminjaman_act.php" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label>Nama Peminjam</label>
                 <input autocomplete="off" type="text" class="form-control" name="nama" required="required" placeholder="Masukkan Nama ..">
@@ -68,6 +68,12 @@
                   <option value="Dipinjam">Dipinjam</option>
                   <option value="Dikembalikan">Dikembalikan</option>
                 </select>
+              </div>
+
+              <div class="form-group">
+                <label>Bukti (Attachment)</label>
+                <input type="file" class="form-control" name="bukti" required="required" accept=".jpg,.jpeg,.png,.pdf">
+                <small class="text-muted">Hanya file dengan format .jpg, .jpeg, .png, atau .pdf yang diperbolehkan.</small>
               </div>
 
               <div class="form-group">
