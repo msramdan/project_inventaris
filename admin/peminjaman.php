@@ -59,8 +59,6 @@
     ");
 
                   while ($d = mysqli_fetch_array($data)) {
-                    var_dump( $d['bukti']);
-                    
                   ?>
                     <tr>
                       <td><?php echo $no++; ?></td>
